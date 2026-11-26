@@ -1,0 +1,26 @@
+{% extends "components/base.html" %}
+
+{% block title %} Proyectos {% endblock title %}
+
+{% block content %}
+  <section class="projects-page">
+    <header class="projects-intro">
+      <div>
+        <h2>Catálogo de Proyectos</h2>
+        <p>Series, películas y adaptaciones completas organizadas por entrega.</p>
+      </div>
+
+      <div class="projects-filter" role="group" aria-label="Filtrar proyectos">
+        <button type="button" class="is-active">Todos</button>
+        <button type="button">Series</button>
+        <button type="button">Películas</button>
+      </div>
+    </header>
+
+    <ul class="projects-gallery">
+      <li>{% include "components/_item_projet.html" %}</li>
+      <li>{% include "components/_item_projet.html" %}</li>
+      <li>{% include "components/_item_projet.html" %}</li>
+    </ul>
+  </section>
+{% endblock content %}

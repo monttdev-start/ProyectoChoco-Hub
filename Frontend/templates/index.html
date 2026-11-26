@@ -1,0 +1,38 @@
+{% extends "components/base.html" %}
+
+{% block title %} Inicio {% endblock title %}
+
+{% block content %}
+  <div class="home-layout">
+    <div class="home-main">
+      <section>
+        <h2>Entradas recientes</h2>
+        <p>Revisa nuestro blog para estar pendiente de nuestros ultimos lanzamientos!</p>
+
+        <ul class="video-grid">
+          <li>{% include "components/_item_video.html" %}</li>
+          <li>{% include "components/_item_video.html" %}</li>
+          <li>{% include "components/_item_video.html" %}</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Doblajes más populares!</h2>
+        <p>Nuestros trabajos más reproducidos a nivel global, Series/Peliculas, etc</p>
+
+        <ul class="popular-list">
+          <li>{% include "components/_item_projet.html"%}</li>
+        </ul>
+      </section>
+    </div>
+
+    <aside class="home-sidebar">
+      <h2>Titulares, Noticias, Anuncios, etc.</h2>
+      <ul>
+        <li>Anuncio 1</li>
+        <li>Noticia 1</li>
+        <li>Titular 1</li>
+      </ul>
+    </aside>
+  </div>
+{% endblock content %}

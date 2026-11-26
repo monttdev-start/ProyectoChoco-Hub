@@ -1,0 +1,100 @@
+/* =========================================================
+   Componente: Contenedor de Proyecto (_item_proyecto.css)
+   Encapsula múltiples instancias de _item_video.html
+   ========================================================= */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--border-strong);
+}
+
+/* Cabecera del proyecto / serie */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.project-tag {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  padding: 0.15rem 0.5rem;
+  background-color: var(--border-strong);
+  color: var(--bg-surface);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.project-header h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.project-header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 65ch;
+}
+
+.project-meta {
+  flex-shrink: 0;
+  padding: 0.3rem 0.65rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Rejilla interna de episodios (_item_video.html) */
+.project-episodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--space-md);
+}
+
+.project-episodes > li {
+  display: flex;
+}
+
+/* Ajuste contextual de .video-card cuando vive dentro de un proyecto */
+.project-episodes .video-card {
+  width: 100%;
+  padding: var(--space-sm);
+  border-top-width: 2px;
+}
+
+.project-episodes .video-card h2 {
+  font-size: 1.1rem;
+}
+
+/* Opcional: si dentro de una serie no necesitas Prev/Next por episodio, descomenta esto:
+.project-episodes .video-card > div {
+  display: none;
+}
+*/
+
+/* =========================================================
+   Responsive para cabecera de proyecto
+   ========================================================= */
+@media (max-width: 640px) {
+  .project-header {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+}

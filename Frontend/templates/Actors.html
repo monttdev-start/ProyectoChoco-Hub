@@ -1,0 +1,23 @@
+{% extends "components/base.html" %}
+
+{% block title %} Participantes {% endblock title %}
+
+{% block content %}
+  <article>
+    <h2>Actores de Reparto</h2>
+    <ul class="actors-row">
+      <li>{% include "components/_item_actor.html" %}</li>
+      <li>{% include "components/_item_actor.html" %}</li>
+      <li>{% include "components/_item_actor.html" %}</li>
+      <li>{% include "components/_item_actor.html" %}</li>
+      <li>{% include "components/_item_actor.html" %}</li>
+    </ul>
+
+    <h2>Técnicos e Ingenieros de Audio</h2>
+    <ul class="actors-row">
+      <li>{% include "components/_item_actor.html" %}</li>
+      <li>{% include "components/_item_actor.html" %}</li>
+      <li>{% include "components/_item_actor.html" %}</li>
+    </ul>
+  </article>
+{% endblock content %}

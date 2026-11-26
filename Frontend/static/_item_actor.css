@@ -1,0 +1,155 @@
+/* =========================================================
+   Componente: Filas y tarjetas circulares (_item_actor.css)
+   Efecto escalonado tipo Apple (mayor en el centro, menor a los lados)
+   ========================================================= */
+.actors-row {
+  list-style: none;
+  margin: var(--space-md) 0 var(--space-lg);
+  padding: var(--space-sm) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.actors-row > li {
+  display: flex;
+  justify-content: center;
+  /* Ligero solapamiento horizontal estilo avatares */
+  margin-inline: -0.75rem;
+  position: relative;
+}
+
+/* Tarjeta base del actor */
+.actor-card {
+  --circle-size: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 190px;
+  padding: var(--space-xs);
+  transition: transform 0.2s ease;
+}
+
+/* Contenedor circular de la imagen/logo */
+.actor-media {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  background-color: var(--bg-surface);
+  border: 3px solid var(--border-strong);
+  box-shadow: 0 0 0 3px var(--bg-surface);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-xs);
+  transition: width 0.2s ease, height 0.2s ease, transform 0.2s ease;
+}
+
+.actor-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Textos y redes debajo del círculo */
+.actor-card h2 {
+  margin: 0.25rem 0 0.15rem;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.actor-card p {
+  margin: 0 0 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.actor-card h3 {
+  margin: 0.2rem 0 0.25rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.actor-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.actor-card li {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+}
+
+/* =========================================================
+   Escalonado de diámetros (ejemplo para fila de 5 ítems:
+   3 en el centro = más grande; 2 y 4 = medio; 1 y 5 = menor)
+   ========================================================= */
+.actors-row > li:nth-child(1),
+.actors-row > li:nth-child(5) {
+  z-index: 1;
+}
+.actors-row > li:nth-child(1) .actor-card,
+.actors-row > li:nth-child(5) .actor-card {
+  --circle-size: 84px;
+  opacity: 0.9;
+}
+
+.actors-row > li:nth-child(2),
+.actors-row > li:nth-child(4) {
+  z-index: 2;
+}
+.actors-row > li:nth-child(2) .actor-card,
+.actors-row > li:nth-child(4) .actor-card {
+  --circle-size: 112px;
+  opacity: 0.96;
+}
+
+.actors-row > li:nth-child(3) {
+  z-index: 3;
+}
+.actors-row > li:nth-child(3) .actor-card {
+  --circle-size: 144px;
+}
+
+/* Al pasar el cursor o enfocar un ítem, sube al frente */
+.actors-row > li:hover {
+  z-index: 10;
+}
+
+.actors-row > li:hover .actor-media {
+  transform: scale(1.06);
+  border-color: var(--border-strong);
+}
+
+/* =========================================================
+   Responsive en pantallas pequeñas
+   ========================================================= */
+@media (max-width: 640px) {
+  .actors-row {
+    gap: var(--space-sm);
+  }
+
+  .actors-row > li {
+    margin-inline: 0;
+  }
+
+  .actors-row > li .actor-card {
+    --circle-size: 96px;
+    opacity: 1;
+  }
+}

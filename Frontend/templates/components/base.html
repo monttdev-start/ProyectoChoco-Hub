@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lan="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Default {% endblock title %} | Proyecto Choco</title>
+    <link rel="stylesheet" href="{{ get_url(path='base.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='_item_video.css')}}">
+    <link rel="stylesheet" href="{{ get_url(path='index.css')}}">
+    <link rel="stylesheet" href="{{ get_url(path='nav.css')}}">
+    <link rel="stylesheet" href="{{ get_url(path='_item_projet.css')}}">
+    <link rel="stylesheet" href="{{ get_url(path='_item_actor.css')}}">
+    <link rel="stylesheet" href="{{ get_url(path='projets.css')}}"
+  </head>
+  <body>
+    <header>
+      {%include "nav.html"%}
+
+      <h1>Titulo de la Sección</h1>
+      <p>Mini descripción</p>
+    </header>
+
+    <hr>
+
+    <section>
+      {% block content%}{% endblock content%}  
+    </section>
+
+    <hr>
+
+    <footer>
+      Copyright (c) 2026 Montt aka Esteban. All Rights Reserved.
+    </footer>
+  </body>
+</html>
+
